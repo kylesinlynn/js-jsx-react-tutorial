@@ -1,44 +1,30 @@
 import './App.css'
-import { Apple } from './components/fruits/Apple'
-import { Grape } from './components/fruits/Grape'
-import { Orange } from './components/fruits/Orange'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
+
+const Fruits = ['Apple', 'Orange']
 
 const App = () => {
-    const [number, setNumber] = useState(0)
 
-    const increase = () => {
-        setNumber(number + 1)
-    }
-    const decrease = () => {
-        setNumber(number - 1)
-    }
-    const increaseByFive = () => {
-        setNumber(number + 5)
-    }
-    const decreaseByFive = () => {
-        setNumber(number - 5)
-    }
-    const reset = () => {
-        setNumber(0)
-    }
+    const [fruits, setFruits] = useState(Fruits)
+    const newFruit = useRef('')
 
-    return (<div className='App'>
-        <h1>Hello World!</h1>
-        <Apple />
-        <Grape />
-        <Orange />
-
-        <div>
-            <h2>States</h2>
-            <p>Number : {number}</p>
-            <button onClick={increase}>Increase</button>
-            <button onClick={decrease} disabled={number === 0 ? true: false}>Decrease</button>
-            <button onClick={increaseByFive}>Increase by 5</button>
-            <button onClick={decreaseByFive} disabled={number - 5 < 0 ? true: number === 0 ? true: false}>Decrease by 5</button>
-            <button onClick={reset}>Reset</button>
-        </div>
+    const submitFunction = (event) => {
+        event.preventDefault()
+        const fruit = newFruit.current.value
+        setFruits(prev => [...prev, fruit])
+        return (newFruit.current.value = '')
+    }
+    
+    return (
+    <div className='App'>
+        <h1>Form</h1>
+        <form onSubmit={submitFunction}>
+            <input type="text" ref={newFruit} />
+            <input type="submit" />
+        </form>
+        <p>{fruits.join(', ')}</p>
     </div>
-)}
+    )
+}
 
 export default App
