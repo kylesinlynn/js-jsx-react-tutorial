@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+.apple {
+  color: red;
+}
+
+.grape {
+  color: purple;
+}
+
+.orange {
+  color: orange;
+}
