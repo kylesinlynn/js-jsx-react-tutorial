@@ -8,10 +8,10 @@ const App = () => {
     const [number, setNumber] = useState(0)
 
     const increase = () => {
-        setNumber(number + 1)
+        setNumber(number + 5)
     }
     const decrease = () => {
-        setNumber(number - 1)
+        setNumber(number - 5)
     }
 
     return (<div className='App'>
