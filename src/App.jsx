@@ -35,7 +35,7 @@ const App = () => {
             <button onClick={increase}>Increase</button>
             <button onClick={decrease} disabled={number === 0 ? true: false}>Decrease</button>
             <button onClick={increaseByFive}>Increase by 5</button>
-            <button onClick={decreaseByFive} disabled={number === 0 ? true: false}>Decrease by 5</button>
+            <button onClick={decreaseByFive} disabled={number - 5 < 0 ? true: number === 0 ? true: false}>Decrease by 5</button>
             <button onClick={reset}>Reset</button>
         </div>
     </div>
