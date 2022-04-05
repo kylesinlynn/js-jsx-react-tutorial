@@ -8,10 +8,19 @@ const App = () => {
     const [number, setNumber] = useState(0)
 
     const increase = () => {
-        setNumber(number + 5)
+        setNumber(number + 1)
     }
     const decrease = () => {
+        setNumber(number - 1)
+    }
+    const increaseByFive = () => {
+        setNumber(number + 5)
+    }
+    const decreaseByFive = () => {
         setNumber(number - 5)
+    }
+    const reset = () => {
+        setNumber(0)
     }
 
     return (<div className='App'>
@@ -25,6 +34,9 @@ const App = () => {
             <p>Number : {number}</p>
             <button onClick={increase}>Increase</button>
             <button onClick={decrease} disabled={number === 0 ? true: false}>Decrease</button>
+            <button onClick={increaseByFive}>Increase by 5</button>
+            <button onClick={decreaseByFive} disabled={number === 0 ? true: false}>Decrease by 5</button>
+            <button onClick={reset}>Reset</button>
         </div>
     </div>
 )}
